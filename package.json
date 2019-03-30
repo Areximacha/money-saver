@@ -1,0 +1,67 @@
+{
+  "name": "round-up-saver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open --mode development",
+    "lint": "echo \"Linting...\"; eslint \"src/**/*.js\"",
+    "pretty": "echo \"Making it pretty...\"; prettier --write \"src/**/*.js\"",
+    "jest": "echo \"Testing...\"; jest",
+    "jest:watch": "npm run jest -- --watch -o",
+    "jest:undateSnapshots": "npm run jest -- -u",
+    "precommit": "lint-staged && npm run jest"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "npm run pretty",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Areximacha/round-up-challenge.git"
+  },
+  "author": "Jay Tang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Areximacha/round-up-challenge/issues"
+  },
+  "homepage": "https://github.com/Areximacha/round-up-challenge#readme",
+  "dependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.9",
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.10",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.5.0",
+    "babel-loader": "^8.0.5",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
+    "jest": "^24.5.0",
+    "jest-dom": "^3.1.3",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
+    "react-test-renderer": "^16.8.6",
+    "react-testing-library": "^6.0.3",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
