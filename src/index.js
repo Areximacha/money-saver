@@ -1,4 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-render(<div>test</div>, document.getElementById('app'))
+import Account from './containers/account/account'
+
+render(<Account />, document.getElementById('app'))
