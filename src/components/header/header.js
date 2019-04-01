@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import HeaderContainer from './header.style'
+
 const Header = ({ title }) => (
-  <div>
+  <HeaderContainer>
     <h3>{title}</h3>
-  </div>
+  </HeaderContainer>
 )
 
 Header.propTypes = {

@@ -4,9 +4,11 @@ const fetch = require('isomorphic-fetch')
 const router = express.Router()
 
 router.get('/transactions', async (req, res) => {
+  const { from, to } = req.query
+  const params = from && to ? `?from=${from}&to=${to}` : ``
   try {
     const response = await fetch(
-      'https://api-sandbox.starlingbank.com/api/v1/transactions',
+      `https://api-sandbox.starlingbank.com/api/v1/transactions${params}`,
       {
         headers: {
           Accept: req.headers.accept,
