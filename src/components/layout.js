@@ -17,13 +17,13 @@ const Container = styled.div`
   padding: 0 20px;
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, title }) => {
   return (
     <>
       <Global styles={reset} />
       <Global styles={base} />
       <Container>
-        <Header title='Account' />
+        <Header title={title} />
         <main>{children}</main>
       </Container>
     </>
@@ -32,6 +32,11 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  title: PropTypes.string,
+}
+
+Layout.defaultProps = {
+  title: ``,
 }
 
 export default Layout

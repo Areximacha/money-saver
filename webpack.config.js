@@ -1,6 +1,10 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+  entry: {
+    polyfill: 'babel-polyfill',
+    app: './src/index.js',
+  },
   module: {
     rules: [
       {
@@ -26,4 +30,11 @@ module.exports = {
       filename: './index.html',
     }),
   ],
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+      },
+    },
+  },
 }
