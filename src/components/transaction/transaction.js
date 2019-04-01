@@ -1,13 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Transaction = ({ transaction }) => {
+import {
+  TransactionCard,
+  TransactionLeft,
+  TransactionRight,
+} from './transaction.style'
+
+const Transaction = ({ transaction: { narrative, amount, balance } }) => {
   return (
-    <div>
-      <div>{transaction.balance}</div>
-      <div>{transaction.amount}</div>
-      <div>{transaction.narrative}</div>
-    </div>
+    <TransactionCard>
+      <TransactionLeft>
+        <h4>{narrative}</h4>
+      </TransactionLeft>
+      <TransactionRight>
+        <h4>{`£${Math.abs(amount).toFixed(2)}`}</h4>
+        <small>{`£${balance.toFixed(2)}`}</small>
+      </TransactionRight>
+    </TransactionCard>
   )
 }
 

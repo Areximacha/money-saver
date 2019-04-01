@@ -5,7 +5,7 @@ import HeaderContainer from './header.style'
 
 const Header = ({ title }) => (
   <HeaderContainer>
-    <h3>{title}</h3>
+    <h2>{title}</h2>
   </HeaderContainer>
 )
 

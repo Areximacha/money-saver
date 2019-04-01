@@ -3,7 +3,7 @@ import { useStateValue } from '../../context/accountProvider'
 
 import Transaction from '../../components/transaction/transaction'
 
-import TransactionsContainer from './transactions.style'
+import { TransactionsContainer, TransactionsBox } from './transactions.style'
 
 const Transactions = () => {
   const { transactions } = useStateValue()
@@ -15,8 +15,8 @@ const Transactions = () => {
 
   return (
     <TransactionsContainer>
-      <h4>Your Recent Outgoing Transactions</h4>
-      <div>{renderTransactions()}</div>
+      <h3>Your Recent Outgoing Transactions</h3>
+      <TransactionsBox>{renderTransactions()}</TransactionsBox>
     </TransactionsContainer>
   )
 }

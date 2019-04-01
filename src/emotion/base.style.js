@@ -47,14 +47,20 @@ const base = css`
   }
 
   h2 {
-    font-size: 48px;
+    font-size: 24px;
     margin: 10px 0;
     color: #333333;
     line-height: 0.9;
   }
 
   h3 {
-    font-size: 24px;
+    font-size: 18px;
+    color: #333333;
+    line-height: 0.9;
+  }
+
+  h4 {
+    font-size: 16px;
     color: #333333;
     line-height: 0.9;
   }
@@ -75,7 +81,9 @@ const base = css`
   }
 
   small {
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #999;
   }
 
   i {
