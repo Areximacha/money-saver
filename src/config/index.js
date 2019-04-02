@@ -1,4 +1,6 @@
 const accessToken =
-  'EiEtx88wn49ny6s0flz1i1W1hc713vjfTVhysBW66DjBRnFbzlVUpfPc7YbJ6neo'
+  '5watj9XNfp9rvYW4ALikTsZtZRG1R7FaXPDEJ2EmtaGNVYrsPPVWfx6ukdZ5liR1'
 
-export default accessToken
+const accountUid = '300336cd-2185-adfe-bf73-de4a32dff68d'
+
+export { accessToken, accountUid }

@@ -15,7 +15,7 @@ const Transactions = () => {
 
   return (
     <TransactionsContainer>
-      <h3>Your Recent Outgoing Transactions</h3>
+      <h3>Your Outgoing Transactions This Week</h3>
       <TransactionsBox>{renderTransactions()}</TransactionsBox>
     </TransactionsContainer>
   )

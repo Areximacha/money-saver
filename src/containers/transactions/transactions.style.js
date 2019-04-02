@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 const TransactionsContainer = styled.div`
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 10px;

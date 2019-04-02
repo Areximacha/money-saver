@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import accessToken from '../config'
+import { accessToken } from '../config'
 
 const useFetch = (url, options = {}) => {
   const [data, setData] = useState(null)

@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect } from 'react'
 import AccountProvider from '../../context/accountProvider'
-import accessToken from '../../config'
+import { accessToken, accountUid } from '../../config'
 
 import Layout from '../../components/layout'
 import Transactions from '../../containers/transactions/transactions'
@@ -30,6 +30,7 @@ const getPastWeek = () => {
 
 const initialState = {
   transactions: [],
+  savingsGoalUid: null,
 }
 
 const reducer = (state, action) => {
@@ -38,6 +39,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         transactions: action.transactions,
+      }
+    case 'SET_SAVINGSGOALID':
+      return {
+        ...state,
+        savingsGoalUid: action.savingsGoalUid,
       }
     default:
       return state
@@ -62,12 +68,63 @@ const Account = () => {
     dispatch({
       type: 'SET_TRANSACTIONS',
       transactions: json._embedded.transactions.filter(
-        transaction => transaction.direction === 'OUTBOUND'
+        transaction =>
+          transaction.direction === 'OUTBOUND' &&
+          transaction.source !== 'INTERNAL_TRANSFER'
       ),
     })
   }
 
+  const savingsGoalRequest = async (method, body) => {
+    const query = `/api/savings-goals?accountUid=${accountUid}`
+
+    const response = await fetch(query, {
+      method: method || 'GET',
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body,
+    })
+
+    const json = await response.json()
+
+    return json
+  }
+
+  const fetchSavingsGoal = async () => {
+    const json = await savingsGoalRequest()
+
+    const roundupSavingsGoal = json.savingsGoalList.find(
+      goal => goal.name === 'Round Up Saver'
+    )
+
+    if (roundupSavingsGoal) {
+      dispatch({
+        type: 'SET_SAVINGSGOALID',
+        savingsGoalUid: roundupSavingsGoal.savingsGoalUid,
+      })
+    } else {
+      createSavingsGoal()
+    }
+  }
+
+  const createSavingsGoal = async () => {
+    const requestBody = {
+      name: 'Round Up Saver',
+      currency: 'GBP',
+    }
+
+    const json = await savingsGoalRequest('PUT', JSON.stringify(requestBody))
+    dispatch({
+      type: 'SET_SAVINGSGOALID',
+      savingsGoalUid: json.savingsGoalUid,
+    })
+  }
+
   useEffect(() => {
+    fetchSavingsGoal()
     fetchRecentTransactions()
   }, [])
 

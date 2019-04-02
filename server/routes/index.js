@@ -25,18 +25,48 @@ router.get('/transactions', async (req, res) => {
 })
 
 router.get('/savings-goals', async (req, res) => {
-  console.log(req.query)
   try {
     const response = await fetch(
-      'https://api-sandbox.starlingbank.com/api/v2/account/300336cd-2185-adfe-bf73-de4a32dff68d/savings-goals',
+      `https://api-sandbox.starlingbank.com/api/v2/account/${
+        req.query.accountUid
+      }/savings-goals`,
       {
-        method: req.method || 'GET',
         headers: {
           Accept: req.headers.accept,
           Authorization: req.headers.authorization,
+          'Content-Type': 'application/json',
         },
       }
     )
+    const json = await response.json()
+
+    res.status(200).json(json)
+  } catch (error) {
+    res.status(403).json({ error })
+  }
+})
+
+router.put('/savings-goals', async (req, res) => {
+  const baseUrl = `https://api-sandbox.starlingbank.com/api/v2/account/`
+  const url =
+    req.query.savingsGoalUid && req.query.transferUid
+      ? `${baseUrl}${req.query.accountUid}/savings-goals/${
+          req.query.savingsGoalUid
+        }/add-money/${req.query.transferUid}`
+      : `${baseUrl}${req.query.accountUid}/savings-goals`
+
+  console.log(req.body)
+
+  try {
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        Accept: req.headers.accept,
+        Authorization: req.headers.authorization,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(req.body),
+    })
     const json = await response.json()
 
     res.status(200).json(json)
