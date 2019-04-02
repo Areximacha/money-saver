@@ -8,9 +8,9 @@ A "round-up" feature for bank customers to take all the transactions from the pa
 - Run 'npm install'
 - In /src/config/index.js add the following:
 ***
-const accessToken = <Your access token>
+const accessToken = *YOUR ACCESS TOKEN*
 
-const accountUid = <Your account id>
+const accountUid = *YOUR ACCOUNT ID*
 
 export { accessToken, accountUid }
 ***
