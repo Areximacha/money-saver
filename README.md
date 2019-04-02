@@ -14,6 +14,7 @@ const accountUid = *YOUR ACCOUNT ID*
 
 export { accessToken, accountUid }
 ***
+- Of course, replacing your access token and your account id with your actual access token and account id respectively.
 - Run 'npm run server' to spin up the express server
 - In another terminal window at the same dir, run 'npm run start' to spin up the local dev environment
 - Go to 'http://localhost:8080/' in your browser to view page
