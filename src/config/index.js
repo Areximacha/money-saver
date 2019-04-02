@@ -1,6 +1,5 @@
-const accessToken =
-  '5watj9XNfp9rvYW4ALikTsZtZRG1R7FaXPDEJ2EmtaGNVYrsPPVWfx6ukdZ5liR1'
+const accessToken = '<YOUR ACCESS TOKEN>'
 
-const accountUid = '300336cd-2185-adfe-bf73-de4a32dff68d'
+const accountUid = '<YOUR ACCOUNT ID>'
 
 export { accessToken, accountUid }
