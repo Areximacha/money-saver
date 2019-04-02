@@ -55,8 +55,6 @@ router.put('/savings-goals', async (req, res) => {
         }/add-money/${req.query.transferUid}`
       : `${baseUrl}${req.query.accountUid}/savings-goals`
 
-  console.log(req.body)
-
   try {
     const response = await fetch(url, {
       method: 'PUT',
