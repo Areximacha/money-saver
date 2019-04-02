@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Account/> @renders renders as expected 1`] = `
+<div
+  className="css-19qknvo-Container ergdp4d0"
+>
+  <header
+    className="css-je8a8u-HeaderContainer e1pby0470"
+  >
+    <h2>
+      Your Account
+    </h2>
+  </header>
+  <main>
+    <div
+      className="css-1xiwt6y-AccountContainer e1y0hh8r0"
+    >
+      <div
+        className="css-9dosor-TransactionsContainer eegxj020"
+      >
+        <h3>
+          Your Outgoing Transactions This Week
+        </h3>
+        <div
+          className="css-1gbizu7-TransactionsBox eegxj021"
+        />
+      </div>
+      <div
+        className="css-1q09l7c-SaverContainer e1lsyzvu0"
+      >
+        <h3>
+          Round Up Saver
+        </h3>
+        <div
+          className="css-13gvf83-SaverBox e1lsyzvu1"
+        >
+          <p>
+            We round up all the transactions you made in the past 6 days to the nearest pound and give you the chance to throw it into your savings goal!
+          </p>
+          <span>
+            This week you could save:
+          </span>
+          <h1>
+            £0
+          </h1>
+          <button
+            className="css-mqzuqy-SaverButton e1lsyzvu2"
+            onClick={[Function]}
+            type="button"
+          >
+            OMG SAVE NOW!
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;

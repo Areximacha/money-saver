@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Transactions/> @renders renders correctly 1`] = `
+<div
+  className="css-9dosor-TransactionsContainer eegxj020"
+>
+  <h3>
+    Your Outgoing Transactions This Week
+  </h3>
+  <div
+    className="css-1gbizu7-TransactionsBox eegxj021"
+  />
+</div>
+`;
