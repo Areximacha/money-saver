@@ -23,7 +23,7 @@ export { accessToken, accountUid }
 
 # Build choices
 
-An express API server was built to directly interface with the Starling Bank API. The app sends and recieves all it's data requests to this node backend.
+An express API server was built to directly interface with the Banking API. The app sends and recieves all it's data requests to this node backend.
 On launch, the app immediately checks for a 'Round Up Saver' savings goal and creates one if it's not present, which it then uses to save the round up money that we calculate from all the transactions of the past 6 days.
 The app is built using the React context API and React hooks to simulate a rudimentary app store in order to store app state.
 Unit testing is done with react-testing-library in more of a lean towards behaviour driven testing.
